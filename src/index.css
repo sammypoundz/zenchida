@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: 255 255 255; /* white */
+    --bg-secondary: 249 250 251; /* gray-50 */
+    --text-primary: 17 24 39; /* gray-900 */
+    --text-secondary: 75 85 99; /* gray-600 */
+  }
+
+  .dark {
+    --bg-primary: 17 24 39; /* gray-900 */
+    --bg-secondary: 31 41 55; /* gray-800 */
+    --text-primary: 243 244 246; /* gray-100 */
+    --text-secondary: 156 163 175; /* gray-400 */
+  }
+
+  body {
+    @apply bg-white dark:bg-dark text-gray-900 dark:text-gray-200 antialiased transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply backdrop-blur-md bg-white/80 dark:bg-black/50 border border-white/20 dark:border-white/10;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-redAccent;
+  }
+}
+
+/* Particles background – adjust opacity for light mode */
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.dark #particles {
+  opacity: 0.8;
+}
