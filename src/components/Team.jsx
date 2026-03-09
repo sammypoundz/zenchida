@@ -1,6 +1,20 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaLinkedinIn, FaEnvelope } from 'react-icons/fa';
+import { useEffect, useState } from 'react';
+
+// Custom hook to detect mobile screens (JavaScript version)
+function useMediaQuery(query) {
+  const [matches, setMatches] = useState(false);
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) setMatches(media.matches);
+    const listener = (e) => setMatches(e.matches);
+    media.addEventListener('change', listener);
+    return () => media.removeEventListener('change', listener);
+  }, [matches, query]);
+  return matches;
+}
 
 const teamMembers = [
   {
@@ -55,17 +69,18 @@ const teamMembers = [
 
 const Team = () => {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
+  const isMobile = useMediaQuery('(max-width: 639px)');
 
   return (
     <section id="team" className="py-20 sm:py-32 relative overflow-hidden">
-      {/* Theme-aware background gradient */}
+      {/* Background gradients */}
       <div className="absolute inset-0 bg-gradient-to-t from-gray-50 via-white to-gray-50 dark:from-darker dark:via-dark dark:to-darker" />
       
-      {/* Floating orbs - hidden on mobile, visible on larger screens */}
+      {/* Floating orbs - hidden on mobile */}
       <div className="hidden sm:block absolute top-20 left-20 w-72 h-72 bg-primary/10 dark:bg-primary/20 rounded-full filter blur-3xl animate-pulse-slow" />
       <div className="hidden sm:block absolute bottom-20 right-20 w-96 h-96 bg-redAccent/10 dark:bg-redAccent/20 rounded-full filter blur-3xl animate-pulse-slow" />
       
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.h2 
           className="text-4xl sm:text-5xl font-bold text-center mb-4 text-gray-900 dark:text-white"
           initial={{ opacity: 0, y: 20 }}
@@ -82,18 +97,13 @@ const Team = () => {
           ref={ref}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
           style={{
-            gridAutoRows: '200px sm:250px',
-            gridAutoFlow: 'dense',
+            gridAutoRows: isMobile ? 'minmax(180px, auto)' : 'minmax(220px, auto)',
           }}
         >
           {teamMembers.map((member, index) => {
-            let colSpan = 1;
-            let rowSpan = 1;
-            if (member.size === 'wide') {
-              colSpan = 2;
-            } else if (member.size === 'tall') {
-              rowSpan = 2;
-            }
+            // On mobile, all cards are normal (span 1)
+            const colSpan = isMobile ? 1 : (member.size === 'wide' ? 2 : 1);
+            const rowSpan = isMobile ? 1 : (member.size === 'tall' ? 2 : 1);
 
             return (
               <motion.div
@@ -116,8 +126,12 @@ const Team = () => {
                   />
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-1">{member.name}</h3>
-                <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm mb-3">{member.role}</p>
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-1 leading-tight">
+                  {member.name}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm mb-3 break-words w-full">
+                  {member.role}
+                </p>
 
                 <div className="flex gap-2 sm:gap-3">
                   <a
@@ -138,7 +152,7 @@ const Team = () => {
 
                 <div className="absolute inset-0 border-2 border-primary/0 group-hover:border-primary/50 transition-all duration-300 rounded-2xl pointer-events-none" />
               </motion.div>
-            )
+            );
           })}
         </div>
       </div>

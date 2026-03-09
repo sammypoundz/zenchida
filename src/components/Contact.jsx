@@ -98,21 +98,21 @@ const Contact = () => {
                   <div className="text-primary text-2xl"><FaMapMarkerAlt /></div>
                   <div>
                     <h4 className="font-semibold text-gray-900 dark:text-white">Visit Us</h4>
-                    <p className="text-gray-600 dark:text-gray-400">123 Tech Avenue, Lagos, Nigeria</p>
+                    <p className="text-gray-600 dark:text-gray-400">#23, Massenya Street Off Cotonou Crescent Wuse Zone 6, Abuja, Nigeria</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="text-primary text-2xl"><FaPhone /></div>
                   <div>
                     <h4 className="font-semibold text-gray-900 dark:text-white">Call Us</h4>
-                    <p className="text-gray-600 dark:text-gray-400">+234 800 123 4567</p>
+                    <p className="text-gray-600 dark:text-gray-400">+234(0)7080-900-035</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="text-primary text-2xl"><FaEnvelope /></div>
                   <div>
                     <h4 className="font-semibold text-gray-900 dark:text-white">Email Us</h4>
-                    <p className="text-gray-600 dark:text-gray-400">info@zenchida.ng</p>
+                    <p className="text-gray-600 dark:text-gray-400">zenchidanigeria@gmail.com</p>
                   </div>
                 </div>
               </div>
