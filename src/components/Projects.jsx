@@ -56,8 +56,8 @@ const projects = [
   {
     name: 'Orient Tabloid (Unrenewed) An Online Media News Site',
     logo: 'IMG-20190818-WA0000.jpg',
-    url: null,
-    active: false,
+    url: 'https://orienttabloid.com/',
+    active: true,
   },
   {
     name: 'Chira Heritage Foundation Website',
