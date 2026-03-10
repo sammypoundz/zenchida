@@ -9,6 +9,8 @@ import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';   // <-- import
+import Initiatives from './components/Initiatives'; // <-- import Initiatives
+
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Hero />
           <About />
           <Services />
+          {/* Initiatives section added directly after Hero */}
+          <Initiatives />
           <Team />
           <Projects />
           <Testimonials />

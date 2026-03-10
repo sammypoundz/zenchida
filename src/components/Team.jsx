@@ -3,6 +3,12 @@ import { useInView } from 'react-intersection-observer';
 import { FaLinkedinIn, FaEnvelope } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 
+// Helper to encode image URLs (handles spaces, parentheses, etc.)
+const encodeImageUrl = (url) => encodeURI(url);
+
+// Base URL for images (same as initiatives)
+const baseUrl = 'https://zenchidanigeria.com.ng/img/';
+
 // Custom hook to detect mobile screens (JavaScript version)
 function useMediaQuery(query) {
   const [matches, setMatches] = useState(false);
@@ -20,39 +26,39 @@ const teamMembers = [
   {
     name: 'Godswill Uche Chira',
     role: 'Managing Director & Chief Operating Officer (COO)',
-    avatar: `https://ui-avatars.com/api/?name=Godswill+Uche+Chira&background=3B82F6&color=fff&size=128`,
-    linkedin: '#',
-    email: 'godswill.chira@smartedufy.ng',
+    avatar: encodeImageUrl(baseUrl + 'WhatsApp Image 2026-03-09 at 3.51.27 PM.jpeg'),
+    linkedin: 'https://www.linkedin.com/in/uche-chira-3b36b2146',
+    email: 'chirauche001@gmail.com',
     size: 'tall',
   },
   {
     name: 'Samuel Agbo',
     role: 'Director of Technology & IT Operations',
-    avatar: `https://ui-avatars.com/api/?name=Samuel+Agbo&background=10B981&color=fff&size=128`,
-    linkedin: '#',
-    email: 'samuel.agbo@smartedufy.ng',
+    avatar: encodeImageUrl(baseUrl + 'WhatsApp Image 2026-03-09 at 3.44.23 PM.jpeg'),
+    linkedin: 'https://www.linkedin.com/in/sammy-poundz-207749253',
+    email: 'sagbo1035@gmail.com',
     size: 'wide',
   },
   {
     name: 'Prince Christian Emeka',
     role: 'Director of Business Development & Programmes',
-    avatar: `https://ui-avatars.com/api/?name=Prince+Christian+Emeka&background=8B5CF6&color=fff&size=128`,
-    linkedin: '#',
-    email: 'christian.emeka@smartedufy.ng',
+    avatar: encodeImageUrl(baseUrl + 'WhatsApp Image 2026-03-10 at 1.48.16 PM.jpeg'),
+    linkedin: 'www.linkedin.com/in/prince-christian-emeka',
+    email: 'princechristianemeka@gmail.com',
     size: 'regular',
   },
   {
     name: 'Stella Chira',
     role: 'Director of Finance & Administration',
-    avatar: `https://ui-avatars.com/api/?name=Stella+Chira&background=EC4899&color=fff&size=128`,
-    linkedin: '#',
-    email: 'stella.chira@smartedufy.ng',
+    avatar: encodeImageUrl(baseUrl + 'WhatsApp Image 2026-03-09 at 6.02.02 PM.jpeg'),
+    linkedin: 'https://www.linkedin.com/in/stella-chinwe-0122812b8',
+    email: 'stellanwaobasi@gmail.com',
     size: 'regular',
   },
   {
     name: 'Divine Amarachi Ogbonna',
     role: 'Director of Corporate Communications & Public Relations',
-    avatar: `https://ui-avatars.com/api/?name=Divine+Amarachi+Ogbonna&background=F59E0B&color=fff&size=128`,
+    avatar:'https://ui-avatars.com/api/?name=Divine+Amarachi+Ogbonna&background=F59E0B&color=fff&size=128',
     linkedin: '#',
     email: 'divine.ogbonna@smartedufy.ng',
     size: 'regular',
@@ -60,9 +66,9 @@ const teamMembers = [
   {
     name: 'Chukwuemeka Godwin',
     role: 'Director of Operations & Logistics',
-    avatar: `https://ui-avatars.com/api/?name=Chukwuemeka+Godwin&background=EF4444&color=fff&size=128`,
-    linkedin: '#',
-    email: 'chukwuemeka.godwin@smartedufy.ng',
+    avatar: encodeImageUrl(baseUrl + 'WhatsApp Image 2026-03-09 at 3.43.33 PM.jpeg'),
+    linkedin: 'https://www.linkedin.com/in/godwin-chukwuemeka-7695a6354',
+    email: 'gchukwuemeka256@gmail.com',
     size: 'regular',
   },
 ];
@@ -95,9 +101,9 @@ const Team = () => {
 
         <div
           ref={ref}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8"
           style={{
-            gridAutoRows: isMobile ? 'minmax(180px, auto)' : 'minmax(220px, auto)',
+            gridAutoRows: isMobile ? 'minmax(220px, auto)' : 'minmax(280px, auto)',
           }}
         >
           {teamMembers.map((member, index) => {
@@ -108,7 +114,7 @@ const Team = () => {
             return (
               <motion.div
                 key={index}
-                className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 p-4 sm:p-6 flex flex-col items-center justify-center text-center border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow"
+                className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 p-6 sm:p-8 flex flex-col items-center justify-center text-center border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-shadow"
                 style={{
                   gridColumn: `span ${colSpan}`,
                   gridRow: `span ${rowSpan}`,
@@ -118,35 +124,40 @@ const Team = () => {
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 whileHover={{ scale: 1.02 }}
               >
-                <div className="w-20 h-20 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 border-primary/30 mb-3 sm:mb-4 ring-2 ring-primary/20 group-hover:border-primary transition-all duration-300">
+                {/* Larger avatar */}
+                <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-4 border-primary/30 mb-4 sm:mb-6 ring-4 ring-primary/20 group-hover:border-primary transition-all duration-300">
                   <img
                     src={member.avatar}
                     alt={member.name}
                     className="w-full h-full object-cover"
+                    onError={(e) => {
+                      // Fallback to UI Avatars if image fails to load
+                      e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=3B82F6&color=fff&size=128`;
+                    }}
                   />
                 </div>
 
-                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-1 leading-tight">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
                   {member.name}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm mb-3 break-words w-full">
+                <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mb-4 break-words w-full">
                   {member.role}
                 </p>
 
-                <div className="flex gap-2 sm:gap-3">
+                <div className="flex gap-3 sm:gap-4">
                   <a
                     href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-colors"
+                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-colors"
                   >
-                    <FaLinkedinIn size={12} />
+                    <FaLinkedinIn size={14} />
                   </a>
                   <a
                     href={`mailto:${member.email}`}
-                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-colors"
+                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary hover:text-white transition-colors"
                   >
-                    <FaEnvelope size={12} />
+                    <FaEnvelope size={14} />
                   </a>
                 </div>
 
