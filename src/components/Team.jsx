@@ -43,7 +43,7 @@ const teamMembers = [
     name: 'Prince Christian Emeka',
     role: 'Director of Business Development & Programmes',
     avatar: encodeImageUrl(baseUrl + 'WhatsApp Image 2026-03-10 at 1.48.16 PM.jpeg'),
-    linkedin: 'www.linkedin.com/in/prince-christian-emeka',
+    linkedin: 'https://www.linkedin.com/in/prince-christian-emeka-45b666192',
     email: 'princechristianemeka@gmail.com',
     size: 'regular',
   },

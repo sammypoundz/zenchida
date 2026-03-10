@@ -103,7 +103,7 @@ const About = () => {
           </motion.div>
         </div>
 
-        {/* Timeline in a 4‑column grid with floating animation */}
+        {/* Glassmorphic timeline cards with gradient years */}
         <motion.div
           className="mt-24"
           initial={{ opacity: 0, y: 30 }}
@@ -116,16 +116,20 @@ const About = () => {
             {timeline.map((item, idx) => (
               <div
                 key={idx}
-                className="relative bg-white dark:bg-gray-800 p-5 rounded-lg shadow-xl border-l-4 border-redAccent floating-card"
+                className="relative group"
               >
-                {/* Pin dot */}
-                <div className="absolute -top-2 -left-2 w-5 h-5 bg-red-500 rounded-full border-2 border-white dark:border-gray-900 shadow-lg" />
-                <span className="text-redAccent font-bold block text-center text-lg">
-                  {item.year}
-                </span>
-                <p className="text-gray-700 dark:text-gray-300 text-sm mt-2 text-center leading-tight">
-                  {item.event}
-                </p>
+                {/* Blue pin dot */}
+                <div className="absolute -top-2 -left-2 z-10 w-5 h-5 bg-blue-500 rounded-full border-2 border-white dark:border-gray-900 shadow-lg" />
+                
+                {/* Glass card */}
+                <div className="bg-white/30 dark:bg-gray-800/30 backdrop-blur-md p-5 rounded-lg border border-white/40 dark:border-gray-600/40 shadow-xl transition-all duration-300 hover:shadow-2xl hover:bg-white/40 dark:hover:bg-gray-800/40 floating-card">
+                  <span className="text-gradient font-bold block text-center text-lg">
+                    {item.year}
+                  </span>
+                  <p className="text-gray-800 dark:text-gray-200 text-sm mt-2 text-center leading-tight font-medium">
+                    {item.event}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -136,9 +140,8 @@ const About = () => {
       <style jsx>{`
         .floating-card {
           animation: float 3s ease-in-out infinite;
-          transition: transform 0.2s ease;
         }
-        .floating-card:hover {
+        .group:hover .floating-card {
           animation-play-state: paused;
           transform: scale(1.02);
         }
