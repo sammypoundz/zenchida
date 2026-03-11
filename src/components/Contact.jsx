@@ -22,7 +22,7 @@ const Contact = () => {
 
     try {
       // Replace with the actual path to your PHP script
-      const response = await fetch('https:www.zenchidanigeria.com.ng/sendemail/contact.php', {
+      const response = await fetch('https://www.zenchidanigeria.com.ng/sendemail/contact.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
