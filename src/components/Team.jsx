@@ -58,9 +58,9 @@ const teamMembers = [
   {
     name: 'Divine Amarachi Ogbonna',
     role: 'Director of Corporate Communications & Public Relations',
-    avatar:'https://ui-avatars.com/api/?name=Divine+Amarachi+Ogbonna&background=F59E0B&color=fff&size=128',
-    linkedin: '#',
-    email: 'divine.ogbonna@smartedufy.ng',
+    avatar:encodeImageUrl(baseUrl + 'WhatsApp Image 2026-03-11 at 7.23.29 AM.jpeg'),
+    linkedin: 'https://ng.linkedin.com/in/divine-ogonna-6848aa1b4',
+    email: 'ogonnadivine@gmail.com',
     size: 'regular',
   },
   {
