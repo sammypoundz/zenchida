@@ -156,7 +156,7 @@ const Contact = () => {
                   <div className="text-primary text-2xl"><FaMapMarkerAlt /></div>
                   <div>
                     <h4 className="font-semibold text-gray-900 dark:text-white">Visit Us</h4>
-                    <p className="text-gray-600 dark:text-gray-400">#23, Massenya Street Off Cotonou Crescent Wuse Zone 6, Abuja, Nigeria</p>
+                    <p className="text-gray-600 dark:text-gray-400">No 23, Zakari Mai Malari Street, Takur Adua, Dutse, Jigawa State, Nigeria.</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">

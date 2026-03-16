@@ -18,27 +18,9 @@ const projects = [
     active: true,
   },
   {
-    name: 'Happivibe - Uber of Happiness Online Calling Service',
-    logo: 'happyvibe.png',
-    url: 'https://happivibe.com',
-    active: true,
-  },
-  {
     name: 'NARD Online Library Mobile App',
     logo: 'nardApp.webp',
     url: 'https://play.google.com/store/apps/details?id=nardilibraryapp.com.nardilibraryapp',
-    active: true,
-  },
-  {
-    name: 'itreble.com.ng Online Booking Website',
-    logo: 'iTreble.png',
-    url: 'https://itreble.com.ng',
-    active: true,
-  },
-  {
-    name: 'Richland Academy School Website',
-    logo: 'richland.png',
-    url: 'https://richlandacademy.com.ng',
     active: true,
   },
   {
@@ -48,13 +30,31 @@ const projects = [
     active: true,
   },
   {
-    name: 'Geneith Pharmacy Website',
-    logo: 'genith.jpg',
-    url: 'https://geneithpharm.com',
+    name: 'Webtray – Business Inventory System',
+    logo: 'webtray.png', // replace with actual logo filename
+    url: 'https://www.webtray.ng',
     active: true,
   },
   {
-    name: 'Orient Tabloid (Unrenewed) An Online Media News Site',
+    name: 'MM Haruna – Online English Academy',
+    logo: 'mmharuna.png', // replace with actual logo filename
+    url: 'https://www.mmharuna.com/',
+    active: true,
+  },
+  {
+    name: 'Vinos School Website',
+    logo: 'vinos.jpeg', // replace with actual logo filename
+    url: 'https://vinosschool.com/',
+    active: true,
+  },
+  {
+    name: 'JVO Shopping Plaza and Event Centers',
+    logo: 'jvo.png', // replace with actual logo filename
+    url: 'https://jvoeventcenter.com/',
+    active: true,
+  },
+  {
+    name: 'Orient Tabloid  An Online Media News Site',
     logo: 'IMG-20190818-WA0000.jpg',
     url: 'https://orienttabloid.com/',
     active: true,
