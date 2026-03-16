@@ -1,38 +1,38 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect, useState } from 'react';
-import { FaQuoteRight } from 'react-icons/fa';
+import { FaQuoteRight, FaUserCircle } from 'react-icons/fa';
 
 const testimonials = [
   {
-    name: 'Adebayo Ogunlesi',
-    role: 'CEO, FinTech Corp',
-    content: 'Zenchida transformed our digital infrastructure completely. Their team is professional, innovative, and truly cares about client success.',
-    avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
+    name: 'Mrs Justina E Chira',
+    role: 'Director, Golden Light School',
+    content: 'Zenchida delivered an outstanding school management website that has streamlined our administration and improved communication with parents. Their team was professional and attentive to our needs.',
+    avatar: 'https://i.pravatar.cc/150?u=justina-chira',
   },
   {
-    name: 'Chioma Okonkwo',
-    role: 'Marketing Director, HealthPlus',
-    content: 'The branding and web solutions delivered by Zenchida exceeded our expectations. Highly recommended!',
-    avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
+    name: 'Dr. Justin Ogbevoen',
+    role: 'C.E.O, JVO Event Center',
+    content: 'The event booking platform they built for us is intuitive and efficient. It has simplified our reservation process and increased our bookings. Highly recommended!',
+    avatar: 'https://i.pravatar.cc/150?u=justin-ogbevoen',
   },
   {
-    name: 'Emeka Nwosu',
-    role: 'Founder, EduLearn',
-    content: 'Their ICT training programs empowered our staff with the latest skills. Excellent service from start to finish.',
-    avatar: 'https://randomuser.me/api/portraits/men/46.jpg',
+    name: 'Mrs. Vivian Ezekeali',
+    role: 'Director, Vinos School',
+    content: 'Working with Zenchida was a game-changer for our school. Their custom solutions helped us digitize our records and engage with parents seamlessly. Thank you!',
+    avatar: 'https://i.pravatar.cc/150?u=vivian-ezekeali',
   },
   {
-    name: 'Sarah Johnson',
-    role: 'CTO, ShopFast',
-    content: 'Their e-commerce platform increased our conversion by 40%. Outstanding work!',
-    avatar: 'https://randomuser.me/api/portraits/women/68.jpg',
+    name: 'Dr. Olugbenga Abiodun',
+    role: 'Editor-in-Chief, AFMJ',
+    content: 'The African Medical Journal platform they developed is robust and user-friendly. It has greatly enhanced our publishing workflow and reader experience.',
+    avatar: 'https://i.pravatar.cc/150?u=olugbenga-abiodun',
   },
   {
-    name: 'Michael Chen',
-    role: 'Product Lead, LogiTrack',
-    content: 'The team delivered a robust logistics solution ahead of schedule. Impressive dedication.',
-    avatar: 'https://randomuser.me/api/portraits/men/75.jpg',
+    name: 'Mr. Emmanuel Nimfa',
+    role: 'Co-Founder, TechForge',
+    content: 'Zenchida’s expertise in software development and ICT training has been invaluable to our startup. They helped us build a solid foundation for our tech initiatives.',
+    avatar: 'https://i.pravatar.cc/150?u=emmanuel-nimfa',
   },
 ];
 
@@ -78,11 +78,10 @@ const Testimonials = () => {
               className="relative"
             >
               <div className="flex items-center gap-6 mb-8">
-                <img
-                  src={testimonials[current].avatar}
-                  alt={testimonials[current].name}
-                  className="w-20 h-20 rounded-full border-4 border-primary"
-                />
+                {/* Placeholder avatar icon instead of actual image */}
+                <div className="w-20 h-20 rounded-full border-4 border-primary flex items-center justify-center bg-gray-200 dark:bg-gray-700">
+                  <FaUserCircle className="w-12 h-12 text-gray-500 dark:text-gray-400" />
+                </div>
                 <div>
                   <h4 className="text-2xl font-bold text-gray-900 dark:text-white">{testimonials[current].name}</h4>
                   <p className="text-gray-600 dark:text-gray-400">{testimonials[current].role}</p>
