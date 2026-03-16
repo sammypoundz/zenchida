@@ -31,7 +31,7 @@ const projects = [
   },
   {
     name: 'Webtray – Business Inventory System',
-    logo: 'webtray.png', // replace with actual logo filename
+    logo: 'webtray.jpg', // replace with actual logo filename
     url: 'https://www.webtray.ng',
     active: true,
   },
